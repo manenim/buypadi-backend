@@ -8,6 +8,10 @@ import { InvoicesModule } from "./invoices/invoices.module";
 import { PaymentModule } from "./payment/payment.module";
 import { UploadModule } from "./upload/upload.module";
 import { MailModule } from "./mail/mail.module";
+import { QuestionnaireModule } from "./questionnaire/questionnaire.module";
+import { QuestionnaireResponse } from "./questionnaire/entities/questionnaire-response.entity";
+import { WaitlistModule } from "./waitlist/waitlist.module";
+import { WaitlistEntry } from "./waitlist/entities/waitlist-entry.entity";
 
 @Module({
   imports: [
@@ -22,7 +26,7 @@ import { MailModule } from "./mail/mail.module";
         username: config.get<string>("DB_USERNAME", "postgres"),
         password: config.get<string>("DB_PASSWORD", "agoodpassword"),
         database: config.get<string>("DB_NAME", "buypady"),
-        entities: [InspectionRequest, Invoice],
+        entities: [InspectionRequest, Invoice, QuestionnaireResponse, WaitlistEntry],
         synchronize: config.get<string>("NODE_ENV") !== "production",
         ssl: {
           rejectUnauthorized: false,
@@ -34,6 +38,8 @@ import { MailModule } from "./mail/mail.module";
     PaymentModule,
     UploadModule,
     MailModule,
+    QuestionnaireModule,
+    WaitlistModule,
   ],
 })
 export class AppModule {}
