@@ -13,7 +13,11 @@ export class WaitlistService {
   ) {}
 
   async create(dto: CreateWaitlistEntryDto): Promise<WaitlistEntry> {
-    const record = this.repo.create(dto);
+    const record = this.repo.create({
+      ...dto,
+      freeInspectionCredits: 1,
+      freeDeliveryCredits: 1,
+    });
     return this.repo.save(record);
   }
 

@@ -29,6 +29,12 @@ export class WaitlistEntry {
   @Column({ type: 'enum', enum: WaitlistStatus, default: WaitlistStatus.NEW })
   status: WaitlistStatus;
 
+  @Column({ type: 'int', default: 1 })
+  freeInspectionCredits: number;
+
+  @Column({ type: 'int', default: 1 })
+  freeDeliveryCredits: number;
+
   @Column({ type: 'text', nullable: true })
   adminNotes: string | null;
 

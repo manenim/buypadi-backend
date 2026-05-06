@@ -19,8 +19,6 @@ export class QuestionnaireService {
       currentPlatformOther: dto.currentPlatformOther ?? null,
       lossAmount: dto.lossAmount ?? null,
       biggestIssueOther: dto.biggestIssueOther ?? null,
-      freeInspectionCredits: 1,
-      freeDeliveryCredits: 1,
     });
     return this.repo.save(record);
   }
