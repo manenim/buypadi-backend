@@ -12,6 +12,7 @@ import { QuestionnaireModule } from "./questionnaire/questionnaire.module";
 import { QuestionnaireResponse } from "./questionnaire/entities/questionnaire-response.entity";
 import { WaitlistModule } from "./waitlist/waitlist.module";
 import { WaitlistEntry } from "./waitlist/entities/waitlist-entry.entity";
+import { HealthController } from "./health.controller";
 
 @Module({
   imports: [
@@ -41,5 +42,6 @@ import { WaitlistEntry } from "./waitlist/entities/waitlist-entry.entity";
     QuestionnaireModule,
     WaitlistModule,
   ],
+  controllers: [HealthController],
 })
 export class AppModule {}
